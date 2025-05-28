@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <div class="container">
+        <%= link_to "My App", root_path, class: "navbar-brand" %>
+        
+        <div class="nav-links">
+            <% if session[:user_id] %>
+                <% user = User.find_by(id: session[:user_id]) %>
+                <% if user %>
+                    <span class="user-info">
+                        Welcome, <%= user.email %>
+                    </span>
+                    <%= link_to "Logout", '/login', method: :delete, class: "btn btn-outline-danger" %>
+                <% end %>
+            <% else %>
+                <%= link_to "Login", '/login', class: "btn btn-outline-primary" %>
+                <%= link_to "Sign Up", '/signup', class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+</nav>

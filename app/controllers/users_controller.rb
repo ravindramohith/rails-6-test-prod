@@ -48,6 +48,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def login
+    
+  end
+
   private
 
   def set_user
