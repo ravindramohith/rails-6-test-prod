@@ -7,13 +7,14 @@ class UsersController < ApplicationController
   def create
     # byebug
     if params[:password] != params[:password_confirmation]
-      redirect_to '/signup'
+      render 'new'
     end
     @user = User.create(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to articles_path
     else
-      redirect_to '/signup'
+      render 'new'
     end
   end
 
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    
+
   end
 
   private
