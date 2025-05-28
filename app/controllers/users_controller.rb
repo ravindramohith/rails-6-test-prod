@@ -44,6 +44,10 @@ class UsersController < ApplicationController
     @image_src = "https://www.gravatar.com/avatar/#{hash}?#{params}"
   end
 
+  def index
+    @users = User.all
+  end
+
   private
 
   def set_user

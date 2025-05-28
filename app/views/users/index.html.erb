@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+id: <%= user.id %>,
+articles: <%= user.articles.count %>
+<%# <%= image_tag @image_src, alt: "User image" %> %>
+<hr>
+<br/>
+<% end %>
