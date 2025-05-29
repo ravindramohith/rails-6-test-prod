@@ -24,4 +24,5 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
       post categories_url, params: { category: { name: " " } }
     end
   end
+  
 end
