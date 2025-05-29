@@ -16,4 +16,12 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_match 'Travel', response.body
   end
+
+  test "validate new category" do 
+    get '/categories/new'
+    assert_response :success
+    assert_difference('Category.count', 0) do 
+      post categories_url, params: { category: { name: " " } }
+    end
+  end
 end
